@@ -1,0 +1,8 @@
+body {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 30px;
+}
+
+h1,h2 {
+color: var(--primary);
+}
