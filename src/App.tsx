@@ -1,24 +1,19 @@
 import './styles/theme.css'
 import './styles/global.css'
-import { Heading } from './components/Heading';
-import { TimerIcon } from 'lucide-react';
+import { Container } from './components/container';
+import { Heading } from './components/heading';
 
 
-function App(){
-
-    console.log('strict mode');
+export function App(){
     return (
     <>
-        <Heading >
-            Ola mundo!
-            <button>
-                <TimerIcon />
-            </button>
-        </Heading>
-        <h3>Teste app </h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi repellat odit nulla aperiam unde exercitationem nostrum consequuntur delectus atque veniam neque iure doloremque mollitia laborum, praesentium sunt pariatur perferendis harum.</p>
-    </>  
-    );  
+       <Container>
+            <Heading>Logo</Heading>
+        </Container> 
+        <Container>
+            <Heading>Menu</Heading>
+        </Container>   
+    </>
+    );
+    
 }
-
-export {App};
