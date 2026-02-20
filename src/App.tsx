@@ -5,6 +5,7 @@ import { Logo } from './components/logo';
 import { Menu } from './components/menu';
 import { CountDown } from './components/countDown';
 import { DefaultInput } from './components/defaultInput';
+import { Cycles } from './components/cycles';
 
 
 export function App(){
@@ -22,7 +23,15 @@ export function App(){
         <Container>
             <form className='form' action=''>
                 <div className='formRow'>
-                    <DefaultInput id="meuInput" labelText="Task" type="text" title="preencha aqui"></DefaultInput>
+                    <DefaultInput 
+                    id="meuInput" 
+                    labelText="Task" 
+                    type="text" 
+                    title="preencha aqui"
+                    placeholder="Digite alguma coisa"
+                    disabled 
+                    defaultValue="Valor preenchido">
+                    </DefaultInput>
                 </div>
 
                 <div className='formRow'>
@@ -30,8 +39,7 @@ export function App(){
                 </div>
                 
                 <div className='formRow'>
-                    <p>Ciclos</p>
-                    <p>0 0 0 0 0 0 0 0 0</p>
+                    <Cycles></Cycles>
                 </div>
                 
                 <div className='formRow'>
