@@ -7,13 +7,27 @@ import { CountDown } from './components/countDown';
 import { DefaultInput } from './components/defaultInput';
 import { Cycles } from './components/cycles';
 import { DefaultButton } from './components/defaultButton';
-import { PlayCircle, PlayCircleIcon, StopCircleIcon } from 'lucide-react';
-import styles from './index.css';
+import { PlayCircleIcon } from 'lucide-react';
+import { Footer } from './components/footer';
+import { Heading } from './components/heading';
+import { useState } from 'react';
 
 
 export function App(){
+    const [numero, setNumero] = useState( () => {
+        console.log('Lazy initialization');
+        return 0;
+    });
+
+    function handleClick(){
+        setNumero(prevState => prevState +1); // manipula sempre o estado atual 
+    }
+
     return (
     <>
+       <Heading>Número: {numero}</Heading>
+        <button onClick={handleClick}>Aumenta</button>
+
        <Container>
             <Logo/>
         </Container> 
@@ -28,7 +42,7 @@ export function App(){
                 <div className='formRow'>
                     <DefaultInput 
                     id="meuInput" 
-                    labelText="Task" 
+                    labelText={numero.toString()} 
                     type="text" 
                     title="preencha aqui"
                     placeholder="Digite alguma coisa"
@@ -48,7 +62,11 @@ export function App(){
                 <div className='formRow'>
                     <DefaultButton icon={<PlayCircleIcon />} ></DefaultButton>
                 </div>
+                
             </form>
+        </Container>
+        <Container>
+            <Footer/>
         </Container>   
     </>
     );
