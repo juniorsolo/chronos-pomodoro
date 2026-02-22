@@ -14,19 +14,18 @@ import { useState } from 'react';
 
 
 export function App(){
-    const [numero, setNumero] = useState( () => {
-        console.log('Lazy initialization');
-        return 0;
-    });
+    // const [numero, setNumero] = useState( () => {
+    //     console.log('Lazy initialization');
+    //     return 0;
+    // });
 
-    function handleClick(){
-        setNumero(prevState => prevState +1); // manipula sempre o estado atual 
-    }
+    // function handleClick(){
+    //     setNumero(prevState => prevState +1); // manipula sempre o estado atual 
+    // }
 
     return (
     <>
-       <Heading>Número: {numero}</Heading>
-        <button onClick={handleClick}>Aumenta</button>
+       <Heading></Heading>
 
        <Container>
             <Logo/>
@@ -42,12 +41,11 @@ export function App(){
                 <div className='formRow'>
                     <DefaultInput 
                     id="meuInput" 
-                    labelText={numero.toString()} 
+                    labelText="Task"
                     type="text" 
                     title="preencha aqui"
                     placeholder="Digite alguma coisa"
-                    disabled 
-                    defaultValue="Valor preenchido">
+                    defaultValue="">
                     </DefaultInput>
                 </div>
 
