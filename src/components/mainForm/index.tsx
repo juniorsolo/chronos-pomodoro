@@ -2,19 +2,20 @@ import { PlayCircleIcon } from "lucide-react";
 import { Cycles } from "../cycles";
 import { DefaultButton } from "../defaultButton";
 import { DefaultInput } from "../defaultInput";
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 export function MainForm(){
-    const [taskName, setTaskName] = useState('');
+    //const [taskName, setTaskName] = useState('');
+    const taskNameInput = useRef<HTMLInputElement>(null);
     function handleCreateNewTask(event : React.SubmitEvent<HTMLFormElement>) {
         event.preventDefault();
-        console.log('deu certo', {taskName});
+        console.log('deu certo', taskNameInput.current?.value);
 
     }
 
   return (  
   <form onSubmit={handleCreateNewTask} className='form' action=''>
-    <h1>{taskName}</h1>
+
       <div className='formRow'>
           <DefaultInput 
           id="meuInput" 
@@ -22,8 +23,10 @@ export function MainForm(){
           type="text" 
           title="preencha aqui"
           placeholder="Digite alguma coisa"
-          value ={taskName}
-          onChange={ e => setTaskName(e.target.value)}>
+          //value ={taskName}
+          //onChange={ e => setTaskName(e.target.value)}
+          ref={taskNameInput}
+          >
           </DefaultInput>
       </div>
 
