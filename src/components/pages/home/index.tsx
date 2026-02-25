@@ -3,15 +3,14 @@ import { CountDown } from "../../countDown";
 import { MainForm } from "../../mainForm";
 import { MainTemplate } from "../../templates/mainTemplate";
 
-
 export function Home(){
 
   return (
     <MainTemplate>
       <Container>
-        <CountDown/>
+        <CountDown></CountDown>
       </Container>
-        <MainForm/>
+        <MainForm ></MainForm>
     </MainTemplate>
   );
 

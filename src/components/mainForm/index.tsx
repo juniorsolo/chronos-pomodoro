@@ -2,11 +2,19 @@ import { PlayCircleIcon } from "lucide-react";
 import { Cycles } from "../cycles";
 import { DefaultButton } from "../defaultButton";
 import { DefaultInput } from "../defaultInput";
+import { useState } from "react";
 
 export function MainForm(){
+    const [taskName, setTaskName] = useState('');
+    function handleCreateNewTask(event : React.SubmitEvent<HTMLFormElement>) {
+        event.preventDefault();
+        console.log('deu certo', {taskName});
+
+    }
 
   return (  
-  <form className='form' action=''>
+  <form onSubmit={handleCreateNewTask} className='form' action=''>
+    <h1>{taskName}</h1>
       <div className='formRow'>
           <DefaultInput 
           id="meuInput" 
@@ -14,12 +22,13 @@ export function MainForm(){
           type="text" 
           title="preencha aqui"
           placeholder="Digite alguma coisa"
-          defaultValue="">
+          value ={taskName}
+          onChange={ e => setTaskName(e.target.value)}>
           </DefaultInput>
       </div>
 
       <div className='formRow'>
-          <p>Lorem ipsum dolor sit amet.</p>
+          <p>O próximo intervalo é de 20 min</p>
       </div>
       
       <div className='formRow'>
